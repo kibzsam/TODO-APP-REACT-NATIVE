@@ -52,7 +52,7 @@ class Main extends React.Component{
             style={styles.textInput}
             onChangeText={(noteText) => this.setState({ noteText })}
             value={this.state.noteText}
-            placeholder='>Note'
+            placeholder='Add a Note'
             placeholderTextColor='white'
             underlineColorAndroid='transparent'>
           </TextInput>
@@ -76,6 +76,10 @@ class Main extends React.Component{
       this.setState({noteText:''});
     }
   }
+deleteNote(key){
+  this.state.noteArray.splice(key,1);
+  this.setState({noteArray:this.state.noteArray})
+}
 };
 
 const styles = StyleSheet.create({
@@ -92,7 +96,7 @@ const styles = StyleSheet.create({
   headerText: {
     color: 'white',
     fontSize: 18,
-    padding: 26,
+    padding: 15,
   },
   scrollContainer: {
     flex: 1,
@@ -120,8 +124,8 @@ const styles = StyleSheet.create({
     right: 20,
     bottom: 90,
     backgroundColor: '#E91E63',
-    width: 90,
-    height: 90,
+    width: 60,
+    height: 60,
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
